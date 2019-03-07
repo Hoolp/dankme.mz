@@ -169,29 +169,7 @@ long __stdcall ExceptionFilter(struct _EXCEPTION_POINTERS *ExceptionInfo)
 	case EXCEPTION_PRIV_INSTRUCTION:
 		Utils::Log("Cause: EXCEPTION_PRIV_INSTRUCTION");
 		break;
-
-	case EXCEPTION_SINGLE_STEP:
-		Utils::Log("Cause: EXCEPTION_SINGLE_STEP");
-		break;
-
-	case EXCEPTION_STACK_OVERFLOW:
-		Utils::Log("Cause: EXCEPTION_STACK_OVERFLOW");
-		break;
-
-	case DBG_CONTROL_C:
-		Utils::Log("Cause: DBG_CONTROL_C");
-		break;
-
-	default:
-		Utils::Log("Cause: %08x", m_ExceptionCode);
-	}
-
-	Utils::Log("-= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -= -");
-
-	Utils::Log("Dumping ASM registers:");
-	Utils::Log("EAX: 0x%08x || ESI: 0x%08x", ExceptionInfo->ContextRecord->Eax, ExceptionInfo->ContextRecord->Esi);
-	Utils::Log("EBX: 0x%08x || EDI: 0x%08x", ExceptionInfo->ContextRecord->Ebx, ExceptionInfo->ContextRecord->Edi);
-	Utils::Log("ECX: 0x%08x || EBP: 0x%08x", ExceptionInfo->ContextRecord->Ecx, ExceptionInfo->ContextRecord->Ebp);
+kRecord->Ecx, ExceptionInfo->ContextRecord->Ebp);
 	Utils::Log("EDX: 0x%08x || ESP: 0x%08x", ExceptionInfo->ContextRecord->Edx, ExceptionInfo->ContextRecord->Esp);
 
 	return EXCEPTION_CONTINUE_SEARCH;
